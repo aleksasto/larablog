@@ -18,7 +18,7 @@ use App\Models\Post;
 // All Posts
 Route::get('/', [PostController::class, 'index']);
 
-// Show Create Form
+/*// Show Create Form
 Route::get('/posts/create', [PostController::class, 'create'])->middleware('auth');
 
 // Store Post Data
@@ -33,11 +33,13 @@ Route::put('/posts/{post}', [PostController::class, 'update'])->middleware('auth
 // Delete Post
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->middleware('auth');
 
+// Single Post
+Route::get('/posts/{post}', [PostController::class, 'show']);*/
+
 // Manage Posts
 Route::get('/posts/manage', [PostController::class, 'manage'])->middleware('auth');
 
-// Single Post
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::resource('posts', PostController::class);
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
